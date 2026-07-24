@@ -1,0 +1,32 @@
+{
+  "8by8": {
+    "demandCV": 0.057,
+    "bound_realistic_obs": 0.15,
+    "oracle_demand_bound": 0.064,
+    "n_query": 192
+  },
+  "6by6": {
+    "demandCV": 0.163,
+    "bound_realistic_obs": 0.454,
+    "oracle_demand_bound": 0.341,
+    "n_query": 192
+  },
+  "5by5": {
+    "demandCV": 0.194,
+    "bound_realistic_obs": 0.521,
+    "oracle_demand_bound": 0.434,
+    "n_query": 48
+  },
+  "3by3": {
+    "demandCV": 0.338,
+    "bound_realistic_obs": 0.872,
+    "oracle_demand_bound": 0.786,
+    "n_query": 12
+  },
+  "9by9": {
+    "demandCV": 0.329,
+    "bound_realistic_obs": 0.677,
+    "oracle_demand_bound": 0.614,
+    "n_query": 192
+  }
+}

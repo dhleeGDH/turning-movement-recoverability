@@ -1,0 +1,38 @@
+{
+  "hourly": {
+    "bound_skill_vs_ToD": 0.013,
+    "bound_skill_vs_ToD_gbm": -0.033,
+    "residual_demandCV": 0.043,
+    "bound_vs_exactSlot": 0.013,
+    "bound_vs_exactSlot_gbm": 0.013,
+    "residual_demandCV_exactSlot": 0.043,
+    "n_exact_slots": 12,
+    "n_clock_hours": 12,
+    "W": 33,
+    "N": 104
+  },
+  "15min": {
+    "bound_skill_vs_ToD": 0.191,
+    "bound_skill_vs_ToD_gbm": 0.216,
+    "residual_demandCV": 0.154,
+    "bound_vs_exactSlot": 0.324,
+    "bound_vs_exactSlot_gbm": 0.199,
+    "residual_demandCV_exactSlot": 0.032,
+    "n_exact_slots": 40,
+    "n_clock_hours": 12,
+    "W": 105,
+    "N": 104
+  },
+  "5min": {
+    "bound_skill_vs_ToD": 0.088,
+    "bound_skill_vs_ToD_gbm": 0.11,
+    "residual_demandCV": 0.214,
+    "bound_vs_exactSlot": 0.2,
+    "bound_vs_exactSlot_gbm": 0.158,
+    "residual_demandCV_exactSlot": 0.045,
+    "n_exact_slots": 117,
+    "n_clock_hours": 12,
+    "W": 307,
+    "N": 104
+  }
+}
