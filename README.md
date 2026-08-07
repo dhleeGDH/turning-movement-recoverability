@@ -82,8 +82,8 @@ characterization reproduce without it.
 
 ## Citation
 
-    @article{lee2026recoverability,
-      author  = {Lee, Donghoun},
+    @article{anonymous2026recoverability,
+      author  = {Anonymous},
       title   = {A Recoverability Characterization for Turning-Movement
                  Estimation at Uninstrumented Signalized Intersections},
       journal = {Journal of Intelligent Transportation Systems},
