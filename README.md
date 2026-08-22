@@ -1,8 +1,8 @@
 # Recoverability characterization for turning-movement estimation
 
-Code and derived data for the paper *A Recoverability Characterization for
-Turning-Movement Estimation at Uninstrumented Signalized Intersections*
-(Journal of Intelligent Transportation Systems).
+Code and derived data for the paper *An Achievable-Accuracy Benchmark and a
+Calibrated Detection Floor for Turning-Movement Estimation at Uninstrumented
+Intersections* (manuscript under review).
 
 The study characterizes what the deployable observables at an uninstrumented
 fixed-time signalized intersection permit to be recovered. A turning count is
@@ -82,12 +82,13 @@ characterization reproduce without it.
 
 ## Citation
 
-    @article{anonymous2026recoverability,
-      author  = {Anonymous},
-      title   = {A Recoverability Characterization for Turning-Movement
-                 Estimation at Uninstrumented Signalized Intersections},
-      journal = {Journal of Intelligent Transportation Systems},
-      year    = {2026}
+    @misc{lee2026recoverability,
+      author = {Lee, Donghoun},
+      title  = {An Achievable-Accuracy Benchmark and a Calibrated Detection
+                Floor for Turning-Movement Estimation at Uninstrumented
+                Intersections},
+      year   = {2026},
+      note   = {Manuscript under review}
     }
 
 ## License
