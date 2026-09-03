@@ -47,6 +47,9 @@ split stays below a positive-control detection floor of about 0.028 RI.
       split_probe_odep.py          OD-dependence control for the split probes
       injection_sweep.py           Mid-block source/sink severity sweep
       crossover_at_depth.py        Conservation crossover by hop depth, for both contests
+      microsim_delay.py            Delay response to split error, measured in microsimulation
+      delay_knee_infill.py         Added design points inside the unresolved split-error gap
+      delay_pooled.py              Delay response on the realized split-error axis
       dart_pretrain.py             Domain continued-pretraining of the DART probe
       bucheon.py                   Bucheon site loader (camera counts)
       bucheon_rho.py               Bucheon field-imbalance estimation
@@ -88,6 +91,8 @@ required.
     python -m src.crossover_at_depth            # crossover by hop depth and contest
     python -m src.split_benchmark               # split benchmark, synthetic grids
     python -m src.split_benchmark_site1         # split benchmark, site 1
+    python -m src.delay_knee_infill             # delay response, added design points
+    python -m src.delay_pooled                  # delay response, realized-error axis
     python -m src.ipf_baseline                  # classical baseline
     python -m src.bucheon_apply                 # Bucheon site evaluation
 

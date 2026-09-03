@@ -1,19 +1,21 @@
-"""Reviewer Major 6: the source/sink robustness axis with a CONSERVATION-CONSISTENT,
-SUMO-level injection (replaces the post-hoc multiplicative label perturbation).
+"""Mid-block source and sink injection at the simulator level, and the crossover it locates.
 
-For a central target U, extra source vehicles are inserted mid-block on U's internal
-approach links and driven on through the network (src.sumo_inject). The deployment-faithful
-neighbour observable is the UPSTREAM intersection's discharge onto the shared approach link
-(upstream_exit), which a mid-block source does not enter -- so the conservation baseline
-    B = upstream_exit(L) x historical split
-is biased low, while the own-history memory baseline
-    A = regime-realised mean of U's turns
-tracks the inflated truth. Sweeping the physical severity, we (i) confirm baseline
-conservation (rho_hat ~ 0 at rho=0), (ii) recover the injected severity with the field
-estimator rho_hat, and (iii) locate the memory-vs-conservation crossover rho*, comparing it
-to the value from the multiplicative model.
+For a central uninstrumented target, extra vehicles are inserted mid-block on the target's
+internal approach links and driven through the network (src.sumo_inject). The neighbour
+observable is the upstream intersection's discharge onto the shared approach link, which a
+mid-block source does not enter. The conservation baseline
 
-  python3 -m src.injection_sweep            # writes data/major6_sumo.json
+    B = upstream discharge on L  x  historical split
+
+is therefore biased low, while the baseline formed from the target's own history
+
+    A = realized mean of the target's turns
+
+tracks the inflated truth. A sweep over the physical severity confirms baseline conservation
+at rho = 0, recovers the injected severity with the field estimator rho_hat, and locates the
+crossover between the two baselines, which the multiplicative bias model is compared against.
+
+    python3 -m src.injection_sweep            # writes data/injection_sweep_<grid>.json
 """
 from __future__ import annotations
 
@@ -153,7 +155,7 @@ def run(scale="5by5", k_scen=20, rho_grid=(0.0, 0.3, 0.6, 0.9, 1.2, 1.5),
               f"{summary['crossover_rho_hat_star']}  (max realized rho_hat = "
               f"{summary['max_realized_rho_hat']}; baseline conservation clean)")
     if out is None:
-        out = f"data/major6_sumo_{scale}.json"
+        out = f"data/injection_sweep_{scale}.json"
     json.dump(summary, open(out, "w"), indent=2)
     if verbose:
         print("saved", out)

@@ -1,51 +1,36 @@
-"""Reviewer Major 2 (POSITIVE CONTROL for the split-irreducibility null).
+"""Positive control for the split-irreducibility result, on the synthetic grids.
 
-The reviewer's logical objection: the split-BREAKING probe (src/split_probe_splitbreak.py, via
-inject_rho_splitbreak) injects turn-split variation that is (a) essentially STATIONARY per site
-(a fresh default_rng(777) per scenario makes the per-intersection bias level identical across
-scenarios; only the deterministic turn-type multipliers L 1.5x / T 1.0x / R 0.5x and the clean
-underlying demand vary) and, crucially, (b) drawn INDEPENDENTLY of the observables o the probe
-sees (the per-site Gaussian bias has nothing to do with the diffused approach demand v_in). If
-the injected split variation is independent of o, a probe FAILING to recover it is TRIVIALLY
-guaranteed, so the null result there would be uninformative about whether the battery has power.
+A null result from a probe carries no information unless the probe is shown to detect a split
+shift that is present. This module supplies that demonstration on the 9x9 grid with the 4x4
+held-out cluster, by injecting a split shift into the movement truth that is both
+scenario-varying and a deterministic function of an observable the probe reads.
 
-This script supplies the missing POSITIVE CONTROL. It injects, on the SAME 9x9 held-out-4x4-cluster
-protocol, a split shift into the movement TRUTH that is BOTH:
-  (1) SCENARIO-VARYING (differs across held-out scenarios, not a stationary per-site pattern), AND
-  (2) a deterministic function of an OBSERVABLE the probe sees -- the scenario's own approach
-      demand level v_in at that movement (the same quantity the probe reads, via diffusion).
+Injection, per scenario s and movement m, with the approach and link volumes left unchanged:
 
-Mechanism (o-DEPENDENT injection), per scenario s, per movement m:
-    base_split[m]   = Y[s,m] / APPR[s,m]                     # true turn split
-    z[m]            = standardize_over_movements( APPR[s,m] ) # z-score of the demand observable
-    dir_mult[m]     = {l:+1, s:0, r:-1}[turn(m)]            # turn-type-dependent direction
-    delta[m]        = alpha * z[m] * dir_mult[m]
-    split_raw[m]    = clip(base_split[m] + delta[m], 0, None)
-    split_new       = renormalize split_raw within each approach (from_edge) group to sum to 1
-    Y_inj[s,m]      = split_new[m] * APPR[s,m]              # approach/link volumes stay CLEAN
-So high-demand approaches shift probability toward LEFTs and away from RIGHTs, proportionally to
-the (standardized, scenario-specific) demand -- a split reshape that is genuinely PREDICTABLE from
-v_in and turn type, and that VARIES scenario to scenario (z tracks APPR[s]).
+    base_split[m] = Y[s,m] / APPR[s,m]
+    z[m]          = standardized APPR[s,m] over movements
+    dir_mult[m]   = {left: +1, through: 0, right: -1}[turn(m)]
+    delta[m]      = alpha * z[m] * dir_mult[m]
+    split_raw[m]  = clip(base_split[m] + delta[m], 0, None)
+    split_new     = split_raw renormalized within each approach group
+    Y_inj[s,m]    = split_new[m] * APPR[s,m]
 
-Matched o-INDEPENDENT injection (direct contrast): identical amplitude and turn-type direction,
-but z is replaced by eps ~ N(0,1) drawn per (scenario, movement) INDEPENDENTLY of the demand:
-    delta[m] = alpha * eps[m] * dir_mult[m].
-This is scenario-varying but carries NO o-signal, so it is unrecoverable by construction.
+High-demand approaches therefore shift probability toward left turns and away from right
+turns in proportion to the standardized demand, which makes the reshape predictable from the
+approach volume and the turn type and lets it vary from scenario to scenario.
 
-For BOTH injections the frozen historical split is CALIBRATED ON THE SAME INJECTED training
-scenarios (hist_split_inj = mean over train scenarios of the injected split), so the persistent
-component is already baked into the frozen split; a learned probe can win ONLY by exploiting the
-SCENARIO-VARYING, o-correlated structure. The learned GB split-adjustment probe uses the SAME
-features as split_probe_extra (v_in, turn, turn-type prior, hist_split) and is scored by RI gain
-over the frozen split, out of cluster.
+A matched injection of the same amplitude and direction replaces z by eps ~ N(0,1) drawn per
+scenario and movement independently of the demand. That arm is scenario-varying but carries no
+signal in the observables, and is unrecoverable by construction.
 
-EXPECTED: o-DEPENDENT gain RISES with alpha (probe recovers o-predictable split variation ->
-positive control PASSES, battery has power); o-INDEPENDENT gain stays ~0 (unrecoverable). This
-shows the null on the REAL data is substantive (the real residual split simply carries no
-o-signal) rather than a trivially-guaranteed artifact of a too-weak battery. CPU only.
+Under both injections the frozen historical split is calibrated on the same injected training
+scenarios, so the persistent component is already contained in the frozen split and a learned
+probe can gain only from the scenario-varying, observable-correlated structure. The learned
+gradient-boosted split adjustment receives the approach volume, the turn, the turn-type prior
+and the frozen split, and is scored as relative improvement over the frozen split, out of
+cluster. Runs on CPU.
 
-    PYTHONPATH=. uv run --project external/graphpfn python -m src.split_probe_odep
-    (fallback)  python3 -m src.split_probe_odep
+    python3 -m src.split_probe_odep
 """
 from __future__ import annotations
 

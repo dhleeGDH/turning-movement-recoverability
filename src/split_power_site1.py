@@ -1,43 +1,34 @@
-"""Reviewer follow-up (POWER CURVE / POSITIVE CONTROL run DIRECTLY on the REAL Bucheon LOIO split test).
+"""Detection floor for the turn split measured on the site-1 protocol itself.
 
-The synthetic positive control (src/split_probe_odep.py + src/m24_power_curve.py) locates the
-split-probe DETECTION FLOOR on SYNTHETIC data (amplitude alpha=0.05, o-explainable variance fraction
-f_min~0.25), and src/m28_null_upperbound.py TRANSFERS that floor onto the Bucheon split-residual scale
-(split-residual RMS ~0.103) to state an upper bound of ~0.028 RI over the frozen split. A reviewer asks
-for the ANALOGOUS power statement measured ON the real Bucheon leave-one-intersection-out (LOIO) test
-itself, so the reader knows the real-site null (observed gain ~0) is not merely underpowered.
+The synthetic positive control locates the detection floor on generated data, and that floor
+is then transferred onto the site-1 split-residual scale. This module measures the analogous
+floor directly on the site-1 leave-one-intersection-out test, so that the observed null at the
+real site is reported against a floor established under the same protocol.
 
-This module runs the EXACT positive-control injection + LOIO learned-probe protocol of
-src/split_probe_bucheon.py, but on injected Bucheon splits, sweeping amplitude:
+The injection leaves the approach volumes unchanged and moves only the split, per window s and
+movement m:
 
-  Injection (per window s, per movement m), APPR (approach/link volumes) left CLEAN, only split moves:
-     base_split[s,m] = Yb[s,m]/APPR[s,m]
-     o-DEP:  z[s,m] = (APPR[s,m]-a_ref)/a_scale   (FIXED global standardizers -> pure fn of the
-             per-movement observable the probe reads as v_in);  delta = alpha * z * dir_mult[turn]
-     o-IND:  z = eps~N(0,1) drawn per (seed,window,movement) INDEPENDENTLY of demand (matched amplitude)
-     stoch:  mix = sqrt(f)*z_odep + sqrt(1-f)*eps  (f = o-explainable fraction of shift variance)
-     split_raw = clip(base_split+delta,0,None); renormalize within each approach (from_edge) group;
-     Yb_inj[s,m] = split_new * APPR[s,m]
-  dir_mult = {L:+1, T:0, R:-1}: high-demand approaches reshape probability toward LEFTs, away from RIGHTs.
+    base_split[s,m] = Yb[s,m] / APPR[s,m]
+    demand-linked   : z[s,m] = (APPR[s,m] - a_ref) / a_scale, fixed global standardizers, so
+                      that z is a function of the per-movement observable the probe reads
+    independent     : z = eps ~ N(0,1) per (seed, window, movement), matched in amplitude
+    partial         : mix = sqrt(f) * z_linked + sqrt(1 - f) * eps, with f the observable-
+                      explainable fraction of the shift variance
+    delta[s,m]      = alpha * z[s,m] * dir_mult[turn(m)]
+    split_raw       = clip(base_split + delta, 0, None), renormalized within each approach
+    Yb_inj[s,m]     = split_new * APPR[s,m]
 
-  Probe: for each held-out intersection I (LOIO, DIFFUSED / fully-uninstrumented target, the paper's
-  setting), a HistGradientBoosting split-adjustment r = split_inj - hist_split_inj is trained on the
-  OTHER intersections and applied to I; the frozen split is calibrated on the SAME injected windows
-  (persistent component baked in), so the probe can win ONLY by exploiting the scenario-varying,
-  o-correlated structure. Gain over frozen split is measured in RI units (naive = frozen split x mean
-  approach), exactly as split_probe_bucheon.run.
+with dir_mult = {left: +1, through: 0, right: -1}.
 
-  DETECTION FLOOR: the matched o-IND injection (scenario-varying, NO o-signal) supplies the null; its
-  gains across seeds/amplitudes define the noise band (mean + 2 std). The floor is the smallest o-DEP
-  amplitude whose mean gain clears that band; the o-DEP gain there IS the detection floor in RI-over-
-  frozen-split units (directly comparable to the synthetic-calibrated ~0.028). The stochastic sweep gives
-  the o-explainable variance fraction floor f_min on real data, and the uninjected (alpha=0) gain is the
-  genuine observed real-site gain, reported against the floor for power context.
+For each held-out intersection a histogram gradient-boosting adjustment to the frozen split is
+trained on the other intersections and applied to the held-out one. The frozen split is
+calibrated on the same injected windows. The independent arm supplies the null, whose gains
+across seeds and amplitudes define a noise band at mean plus two standard deviations. The
+floor is the smallest demand-linked amplitude whose mean gain clears that band. The partial
+sweep gives the observable-explainable variance fraction at which detection begins, and the
+uninjected arm gives the observed gain at the site. Runs on CPU.
 
-CPU only.
-
-    PYTHONPATH=. uv run --project external/graphpfn python -m src.split_power_site1
-    (fallback)  python3 -m src.split_power_site1
+    python3 -m src.split_power_site1
 """
 from __future__ import annotations
 

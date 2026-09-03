@@ -1,18 +1,14 @@
-"""E7: compute the within-site benchmark FOR THE TURN SPLIT, not only for the demand level.
+"""Within-site benchmark for the turn split on the synthetic grids.
 
-WHY THIS EXISTS. Section 2.4 defines recoverability with a two-part test: "A component is called
-recoverable when the benchmark and an attained RI both exceed the calibrated detection floor."
-The benchmark is then computed for the demand level and reported (0.677 on the 9x9/4x4 setting),
-but it is never computed for the split. The paper's central negative claim -- that no tested
-estimator class improves the split above the floor -- therefore rests on attained RIs alone, and
-the device built to bound what ANY function of the observables can reach is never pointed at the
-component it is meant to adjudicate. An inspector raised this; the gap is real.
+Recoverability is defined with a two-part test: a component is recoverable when the benchmark
+and an attained relative improvement both exceed the calibrated detection floor. This module
+computes the benchmark half of that test for the split, which the demand-level benchmark does
+not cover.
 
-This module runs the same law-of-total-variance proxy of src.recover_bound_syn on the split
-target. Rows are (scenario, query movement); the response is the movement's share of its own
-approach; the naive baseline is the historical mean share; the features are the deployable
-observables the estimators receive. Cross-validation is grouped by scenario, so no query node
-sees its own scenario in training.
+The law-of-total-variance proxy is run on the split target. Rows are (scenario, query
+movement); the response is the movement's share of its own approach; the naive baseline is the
+historical mean share; the features are the deployable observables the estimators receive.
+Cross-validation is grouped by scenario, so no query node sees its own scenario in training.
 
     python3 -m src.split_benchmark            # writes data/e7_split_benchmark.json
 """

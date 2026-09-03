@@ -1,24 +1,17 @@
-"""E6: identify the conservation crossover WHERE THE RULE USES IT and ON THE CONTEST IT DECIDES.
+"""Conservation crossover resolved by hop depth and scored on the contest the gate decides.
 
-WHY THIS EXISTS. Two objections survive the current identification of rho_hat*, both raised by
-independent inspectors and both checkable against the code that produced data/e2*, e3*:
+The crossover of Eq. (gate) is used at two strata that the single-intersection mask of the
+earlier sweep cannot separate. Under that mask every query movement is adjacent to an
+instrumented neighbour, which is the stratum in which the gate returns the diffused mode
+unconditionally and never consults rho_hat.
 
-  (1) DEPTH. exp_major6._central_U() masks ONE intersection, so every query movement is adjacent
-      to an instrumented neighbour, i.e. h=1 -- the exact stratum in which Eq.(gate) returns the
-      diffused mode unconditionally and never consults rho_hat. The threshold is therefore
-      identified where the rule does not use it, and transferred to h>=2 without test.
+This module re-runs the same physical mid-block injection on the 9x9 grid with the 4x4
+held-out cluster of the synthetic setting, which supplies a boundary stratum at h = 1 and an
+interior stratum at h >= 2. Both contests are scored on the same runs, so the two are
+comparable:
 
-  (2) CONTEST. exp_major6 scores memory (own-history mean) against a conservation baseline
-      (upstream discharge x historical split). Eq.(gate) does not select between those two. It
-      selects between a boundary-diffused demand ratio and a global growth ratio, both applied to
-      the same history. The threshold is transferred from one contest to the other without test.
-
-This module re-runs the same physical mid-block injection on the 9x9 grid with the 4x4 held-out
-cluster of the paper's synthetic setting, which supplies both an h=1 boundary stratum and an
-h>=2 interior stratum, and scores BOTH contests on the same runs so the two are comparable:
-
-  old contest : memory  vs  upstream-discharge x historical split      (exp_major6)
-  new contest : hist x r_diff  vs  hist x r_glob                        (Eq. gate)
+    memory baseline  vs  upstream discharge x historical split
+    hist x r_diff    vs  hist x r_glob                            (Eq. gate)
 
     python3 -m src.crossover_at_depth            # writes data/e6_crossover_at_depth.json
 """
