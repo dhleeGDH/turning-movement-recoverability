@@ -12,6 +12,8 @@ Feature design (NO own label / own count -> passes no-leakage):
   anchor:   observed-approach x historical split (NaN if approach unobserved)
 Continuous features go under FeatureArrays['num']; GraphPFN/LimiX handle NaNs.
 """
+from __future__ import annotations
+
 
 import math
 

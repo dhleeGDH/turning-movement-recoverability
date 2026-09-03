@@ -13,8 +13,11 @@ APPR that both move consistently, and rho_hat recovers the injected severity.
 
   python3 -m src.sumo_inject          # self-test: recover a known rho on one scenario
 """
+from __future__ import annotations
+
 
 import os
+import tempfile
 import subprocess
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -25,8 +28,8 @@ from .graph.labels import counts_to_arrays, extract_counts
 from .graph.net_parser import NetworkData, parse_net
 from .rho_estimate import estimate_rho_per_link, internal_links
 
-ROUTING = "/home/dhlee/routing"
-WORK = "/tmp/claude-1000/-home-dhlee-estimation/93a9334d-e0f0-4ca5-abcc-f81e963b8cde/scratchpad/sumo_inject"
+ROUTING = os.environ.get("TMR_ROUTING", os.path.join(os.getcwd(), "routing"))
+WORK = os.environ.get("TMR_WORK", os.path.join(tempfile.gettempdir(), "tmr_sumo_inject"))
 
 
 def _adjacency(net: NetworkData) -> dict[str, list[str]]:

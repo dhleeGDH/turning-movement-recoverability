@@ -1,3 +1,4 @@
+# Python 3.9 or later (the modules use built-in generic annotations).
 # Core numerics and modelling
 numpy>=1.24
 scikit-learn>=1.3

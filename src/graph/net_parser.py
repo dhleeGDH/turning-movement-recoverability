@@ -11,11 +11,19 @@ Outputs (all keyed by SUMO ids):
 A Movement is a graph node. Its turn type (l/s/r) comes straight from SUMO's
 connection dir attribute, its intersection from link topology.
 """
+from __future__ import annotations
 
+
+import os
 import math
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from pathlib import Path
+
+def _routing(scale="5by5"):
+    """Location of the generated SUMO networks; set TMR_ROUTING to override."""
+    return os.path.join(os.environ.get("TMR_ROUTING", os.path.join(os.getcwd(), "routing")), scale)
+
 
 
 @dataclass
@@ -135,7 +143,7 @@ def parse_net(path: str | Path) -> NetworkData:
 if __name__ == "__main__":
     import sys
     net = parse_net(sys.argv[1] if len(sys.argv) > 1
-                    else "/home/dhlee/routing/5by5/5by5.net.xml")
+                    else os.path.join(_routing(), "5by5.net.xml"))
     print(net.summary())
     # per-intersection movement counts
     from collections import Counter

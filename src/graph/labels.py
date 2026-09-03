@@ -7,12 +7,20 @@ conservation-consistent by construction -- exactly what Go/No-Go 1 needs.
   movement_count[(from_edge,to_edge)] : vehicles making that turn (consecutive edge pair)
   link_volume[edge]                   : vehicles traversing that link
 """
+from __future__ import annotations
 
+
+import os
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 from pathlib import Path
 
 from .net_parser import NetworkData
+
+def _routing(scale="5by5"):
+    """Location of the generated SUMO networks; set TMR_ROUTING to override."""
+    return os.path.join(os.environ.get("TMR_ROUTING", os.path.join(os.getcwd(), "routing")), scale)
+
 
 
 def extract_counts(route_xml: str | Path,
@@ -68,7 +76,7 @@ if __name__ == "__main__":
     import numpy as np
     from .net_parser import parse_net
 
-    base = "/home/dhlee/routing/5by5"
+    base = _routing()
     net = parse_net(f"{base}/5by5.net.xml")
     rp = sys.argv[1] if len(sys.argv) > 1 else f"{base}/simData/vehRouteData/Route1704000479d1.xml"
     move, link = extract_counts(rp, net)

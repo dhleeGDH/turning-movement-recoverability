@@ -18,6 +18,8 @@ Constraints on cluster movement counts x (all conservation is exact at rho=0):
   internal:  for a link e with both endpoints U: sum(to_e at upstream) = sum(from_e at downstream)
 Solved as augmented least squares: min || sqrt(lam)(x - x0) ; W(Cx - d) ||^2, x >= 0.
 """
+from __future__ import annotations
+
 
 from collections import defaultdict
 

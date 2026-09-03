@@ -9,10 +9,18 @@ rho = fractional net source/sink severity. sign = +1 (net inflow) / -1 (net outf
 Bias is drawn once per intersection (structural, shared across that intersection's
 movements) and accumulated along corridor order for multi-U configs.
 """
+from __future__ import annotations
 
+
+import os
 import numpy as np
 
 from ..graph.movement_graph import MovementGraph
+
+def _routing(scale="5by5"):
+    """Location of the generated SUMO networks; set TMR_ROUTING to override."""
+    return os.path.join(os.environ.get("TMR_ROUTING", os.path.join(os.getcwd(), "routing")), scale)
+
 
 
 def inject_rho(y_clean: np.ndarray,
@@ -99,7 +107,7 @@ if __name__ == "__main__":
     from ..graph.movement_graph import build_movement_graph, assign_ou
     from ..graph.labels import extract_counts, counts_to_arrays
 
-    base = "/home/dhlee/routing/5by5"
+    base = _routing()
     net = parse_net(f"{base}/5by5.net.xml")
     mg = build_movement_graph(net)
     move, _ = extract_counts(f"{base}/simData/vehRouteData/Route1704000479d1.xml", net)

@@ -1,0 +1,71 @@
+{
+ "purpose": "Section 2.4 defines recoverability as benchmark AND attained RI both above the detection floor, but the benchmark was never computed for the split. This file computes it.",
+ "floor_synthetic": 0.028,
+ "floor_site1": 0.018,
+ "synthetic": {
+  "9by9": {
+   "n_query": 192,
+   "n_scenarios": 80,
+   "split_benchmark_RI": 0.053,
+   "naive_rmse_share": 0.04946,
+   "above_synthetic_floor": true,
+   "above_site1_floor": true
+  },
+  "8by8": {
+   "n_query": 192,
+   "n_scenarios": 80,
+   "split_benchmark_RI": 0.0374,
+   "naive_rmse_share": 0.05325,
+   "above_synthetic_floor": true,
+   "above_site1_floor": true
+  },
+  "6by6": {
+   "n_query": 192,
+   "n_scenarios": 80,
+   "split_benchmark_RI": 0.0448,
+   "naive_rmse_share": 0.04575,
+   "above_synthetic_floor": true,
+   "above_site1_floor": true
+  },
+  "5by5": {
+   "n_query": 48,
+   "n_scenarios": 80,
+   "split_benchmark_RI": 0.0187,
+   "naive_rmse_share": 0.04146,
+   "above_synthetic_floor": false,
+   "above_site1_floor": true
+  }
+ },
+ "synthetic_decomposition_9by9": {
+  "split_benchmark_RI": 0.0583,
+  "shrinkage_only_RI": 0.013,
+  "scenario_varying_share": 0.0453,
+  "note": "Fold-internal history, so no test scenario contributes to its own baseline. The scenario-varying part is carried by the within-approach variation of the diffused ratio, whose per-approach standard deviation is 0.0097 on the 9x9 setting."
+ },
+ "site1": {
+  "60min": {
+   "split_benchmark_RI": -0.0972,
+   "naive_rmse_share": 0.03551,
+   "median_peers_per_clock_slot": 2,
+   "n_rows": 3432,
+   "above_0.028": false,
+   "above_0.018": false
+  },
+  "15min": {
+   "split_benchmark_RI": 0.3265,
+   "naive_rmse_share": 0.09026,
+   "median_peers_per_clock_slot": 2,
+   "n_rows": 10920,
+   "above_0.028": true,
+   "above_0.018": true
+  }
+ },
+ "interpretation": "At site 1 and 60-min, the confirmatory resolution with a stable same-clock-hour baseline, the split benchmark is NEGATIVE (-0.0972): the deployable observables do not permit beating the historical share. At 15-min the proxy is not interpretable as a bound, because the naive share RMSE rises from 0.0355 to 0.0903 while the median clock slot has only two peer windows, so a smoother predictor gains against the baseline's own counting noise rather than against the split. On the clean synthetic grids, where counting noise is absent, the benchmark reaches 0.037 to 0.058, above the 0.028 floor, and 0.045 of that is scenario-varying.",
+ "site1_robustness_60min": {
+  "gbm_300": -0.0972,
+  "gbm_1000": -0.1869,
+  "random_forest_400": -0.1198,
+  "gbm_no_diffused_ratio": -0.0963,
+  "note": "Negative under every learner and feature set tried."
+ }
+}

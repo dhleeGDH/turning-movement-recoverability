@@ -3,13 +3,21 @@
 Also handles O/U assignment (which intersections are observed) and the missing
 connected components that cluster-aware attention (module B) will key on.
 """
+from __future__ import annotations
+
 
 from dataclasses import dataclass
 
+import os
 import networkx as nx
 import numpy as np
 
 from .net_parser import NetworkData
+
+def _routing(scale="5by5"):
+    """Location of the generated SUMO networks; set TMR_ROUTING to override."""
+    return os.path.join(os.environ.get("TMR_ROUTING", os.path.join(os.getcwd(), "routing")), scale)
+
 
 
 @dataclass
@@ -104,7 +112,7 @@ if __name__ == "__main__":
     from collections import Counter
     from .net_parser import parse_net
 
-    net = parse_net("/home/dhlee/routing/5by5/5by5.net.xml")
+    net = parse_net(os.path.join(_routing(), "5by5.net.xml"))
     mg = build_movement_graph(net)
     et = Counter(mg.edge_type.values())
     print(f"nodes={mg.n_nodes}  edges={mg.G.number_of_edges()}  by_type={dict(et)}")

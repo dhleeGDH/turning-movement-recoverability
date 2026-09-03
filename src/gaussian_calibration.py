@@ -18,7 +18,7 @@ from .graph.local_demand import local_demand_ratio
 from .graph.movement_graph import assign_ou
 from .graph.observe import approach_observed_mask
 from .graph.scenarios import generate_cluster_configs
-from .train_F import _load
+from .dart_pretrain import _load
 
 
 def run(scale="9by9", target_bound=0.65, out="data/gaussian_calibration.json"):

@@ -30,11 +30,11 @@ from .graph.movement_graph import assign_ou, build_movement_graph
 from .graph.net_parser import parse_net
 from .inject.rho import inject_rho
 
-BASE = "/home/dhlee/routing/5by5"          # default scale (back-compat)
+BASE = os.path.join(os.environ.get("TMR_ROUTING", os.path.join(os.getcwd(), "routing")), "5by5")
 
 
 def scale_dir(scale: str) -> str:
-    return f"/home/dhlee/routing/{scale}"
+    return os.path.join(os.environ.get("TMR_ROUTING", os.path.join(os.getcwd(), "routing")), scale)
 
 
 def net_path(scale: str) -> str:

@@ -12,10 +12,18 @@ come from other U intersections and are therefore unobserved -> B must fall back
 historical approach mean, collapsing toward the naive floor A. This is the gap module B
 (cluster-aware attention, model G) is meant to recover.
 """
+from __future__ import annotations
 
+
+import os
 import numpy as np
 
 from .net_parser import NetworkData
+
+def _routing(scale="5by5"):
+    """Location of the generated SUMO networks; set TMR_ROUTING to override."""
+    return os.path.join(os.environ.get("TMR_ROUTING", os.path.join(os.getcwd(), "routing")), scale)
+
 
 
 def link_observed(net: NetworkData, eid: str, u_intersections: set[str],
@@ -52,7 +60,7 @@ if __name__ == "__main__":
     from .net_parser import parse_net
     from .movement_graph import assign_ou, build_movement_graph
 
-    net = parse_net("/home/dhlee/routing/5by5/5by5.net.xml")
+    net = parse_net(os.path.join(_routing(), "5by5.net.xml"))
     mg = build_movement_graph(net)
     inters = sorted(net.intersections, key=lambda j: (net.junctions[j].x, net.junctions[j].y))
 

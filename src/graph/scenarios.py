@@ -5,10 +5,18 @@ Grid coords come straight from junction (x, y). A k-block places U intersections
 in a contiguous r x c rectangle; interior intersections sit multiple hops from the
 nearest observed one, which is what makes the anchor B degrade.
 """
+from __future__ import annotations
 
+
+import os
 import numpy as np
 
 from .net_parser import NetworkData
+
+def _routing(scale="5by5"):
+    """Location of the generated SUMO networks; set TMR_ROUTING to override."""
+    return os.path.join(os.environ.get("TMR_ROUTING", os.path.join(os.getcwd(), "routing")), scale)
+
 
 
 def grid_coords(net: NetworkData) -> dict[str, tuple[int, int]]:
@@ -54,7 +62,7 @@ if __name__ == "__main__":
     from .movement_graph import assign_ou, build_movement_graph
     from .observe import approach_observed_mask
 
-    net = parse_net("/home/dhlee/routing/5by5/5by5.net.xml")
+    net = parse_net(os.path.join(_routing(), "5by5.net.xml"))
     mg = build_movement_graph(net)
     print(f"{'config':>12} | {'n_int':>5} {'n_U':>4} | {'appr_obs':>10} | {'h dist':>12} | comps")
     print("-" * 62)
