@@ -35,8 +35,9 @@ split stays below a positive-control detection floor of about 0.028 RI.
       pilot_cluster.py             Clustered-missing recovery and RI by hop depth
       achievable_benchmark.py      Achievable-accuracy benchmark from a tree-ensemble proxy
       benchmark_proxies.py         Proxy-family comparison for the benchmark
-      known_ceiling_calibration.py Known-ceiling calibration on synthetic conditional laws
-      count_calibration.py         Count-level calibration used by the ceiling calibration
+      known_ceiling_calibration.py Known-limit calibration on synthetic conditional laws
+      gaussian_calibration.py      Gaussian arm of that calibration, with an analytic limit
+      count_calibration.py         Count-level calibration the known-limit protocol uses
       ipf_baseline.py              Classical IPF/Furness baseline
       split_positive_control.py    Positive control calibrating the split detection floor
       split_benchmark.py           Benchmark for the turn split on the synthetic grids
@@ -96,7 +97,7 @@ reproduces without it.
 
 ## Citation
 
-    @misc{lee2026recoverability,
+    @misc{lee2026anchor,
       author = {Lee, Donghoun},
       title  = {A Conservation-Bounded Demand Anchor for Turning-Movement
                 Estimation at Uninstrumented Signalized Intersections},
