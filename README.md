@@ -93,6 +93,8 @@ required.
     python -m src.split_benchmark_site1         # split benchmark, site 1
     python -m src.delay_knee_infill             # delay response, added design points
     python -m src.delay_pooled                  # delay response, realized-error axis
+    python -m src.anchor_lodo                   # site-1 boundary modes, date folds
+    python -m src.interior_corners_lodo         # site-1 interior blocks, date folds
     python -m src.ipf_baseline                  # classical baseline
     python -m src.bucheon_apply                 # Bucheon site evaluation
 

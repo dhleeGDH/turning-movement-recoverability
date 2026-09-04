@@ -1,0 +1,90 @@
+{
+ "n_windows": 33,
+ "n_dates": 6,
+ "blocks": {
+  "TL": {
+   "n_h2": 16,
+   "per_fold_anchor_RI_ToD": [
+    -0.239,
+    0.2,
+    0.055,
+    -0.019,
+    -0.151,
+    0.8
+   ],
+   "per_fold_global_RI_ToD": [
+    -0.242,
+    0.211,
+    0.144,
+    -0.007,
+    -0.161,
+    0.779
+   ],
+   "fold_mean_anchor": 0.108,
+   "fold_mean_global": 0.121
+  },
+  "TR": {
+   "n_h2": 16,
+   "per_fold_anchor_RI_ToD": [
+    0.589,
+    -0.4,
+    0.12,
+    0.488,
+    0.5,
+    0.825
+   ],
+   "per_fold_global_RI_ToD": [
+    0.166,
+    -0.219,
+    0.201,
+    0.128,
+    0.078,
+    0.795
+   ],
+   "fold_mean_anchor": 0.354,
+   "fold_mean_global": 0.192
+  },
+  "BL": {
+   "n_h2": 16,
+   "per_fold_anchor_RI_ToD": [
+    -0.297,
+    -1.245,
+    0.001,
+    -0.094,
+    -0.131,
+    0.358
+   ],
+   "per_fold_global_RI_ToD": [
+    -0.015,
+    -0.268,
+    0.159,
+    -0.033,
+    -0.139,
+    0.821
+   ],
+   "fold_mean_anchor": -0.235,
+   "fold_mean_global": 0.087
+  },
+  "BR": {
+   "n_h2": 16,
+   "per_fold_anchor_RI_ToD": [
+    0.166,
+    -0.406,
+    -0.037,
+    -0.041,
+    -0.052,
+    0.734
+   ],
+   "per_fold_global_RI_ToD": [
+    0.069,
+    -0.054,
+    0.01,
+    -0.045,
+    0.019,
+    0.656
+   ],
+   "fold_mean_anchor": 0.061,
+   "fold_mean_global": 0.109
+  }
+ }
+}
