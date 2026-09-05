@@ -1,0 +1,17 @@
+{
+ "site": "Xuancheng, feasible block",
+ "source": "xc_feas_arrays.npz (the arrays behind the site-2 hop-stratified results)",
+ "definition": "std of the within-clock-hour residual of the window total, as at site 1",
+ "n_movements": 364,
+ "n_dates": 8,
+ "by_resolution": {
+  "60min": {
+   "demandCV_res": 0.106,
+   "n_windows": 198
+  },
+  "15min": {
+   "demandCV_res": 0.206,
+   "n_windows": 774
+  }
+ }
+}

@@ -95,6 +95,7 @@ required.
     python -m src.delay_pooled                  # delay response, realized-error axis
     python -m src.anchor_lodo                   # site-1 boundary modes, date folds
     python -m src.interior_corners_lodo         # site-1 interior blocks, date folds
+    python -m src.xc_aggregate_demandcv         # site-2 aggregate screening scalar
     python -m src.ipf_baseline                  # classical baseline
     python -m src.bucheon_apply                 # Bucheon site evaluation
 
