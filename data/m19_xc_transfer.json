@@ -1,0 +1,18 @@
+{
+  "site": "Xuancheng",
+  "bin_min": 15,
+  "n_intersections": 33,
+  "demandcv_res_median": 0.316,
+  "demandcv_res_iqr": [
+    0.276,
+    0.353
+  ],
+  "demandcv_res_range": [
+    0.228,
+    0.789
+  ],
+  "across_intersection_spread_sd": 0.123,
+  "neighbour_pred_mae": 0.078,
+  "site_median_pred_mae": 0.068,
+  "neighbour_pred_corr": -0.044
+}

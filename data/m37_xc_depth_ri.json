@@ -1,0 +1,227 @@
+{
+  "site": "Xuancheng (site 2, 2023 Release B)",
+  "block_variant": "feas",
+  "n_days": 8,
+  "days": [
+    "2023-04-03",
+    "2023-04-04",
+    "2023-04-06",
+    "2023-04-07",
+    "2023-04-10",
+    "2023-04-11",
+    "2023-04-12",
+    "2023-04-13"
+  ],
+  "block_intersections": [
+    "34180200000376",
+    "34180200000453",
+    "34180200000480",
+    "34180200000507",
+    "34180200000516",
+    "34180200006209",
+    "34180200006751",
+    "34180200007880"
+  ],
+  "n_block_intersections": 8,
+  "protocol": "8-date leave-one-date-out; anchor=base*diffused-ratio, naive=same-clock-hour ToD mean",
+  "reference": "trajectory-reconstructed turning counts",
+  "depth_ri": {
+    "60min": {
+      "binmin": 60,
+      "n_query_total": 100,
+      "hop_histogram": {
+        "1": 85,
+        "2": 15
+      },
+      "by_depth": {
+        "1": {
+          "n_movements": 85,
+          "RI_ToD": 0.51,
+          "folds": [
+            0.551,
+            0.584,
+            0.46,
+            0.435,
+            0.496,
+            0.503,
+            0.51,
+            0.467
+          ],
+          "fold_mean": 0.501,
+          "fold_min": 0.435,
+          "fold_max": 0.584,
+          "n_folds_pos": 8,
+          "n_folds": 8
+        },
+        "2": {
+          "n_movements": 15,
+          "RI_ToD": 0.167,
+          "folds": [
+            0.112,
+            0.117,
+            0.211,
+            0.049,
+            0.108,
+            0.291,
+            0.276,
+            0.091
+          ],
+          "fold_mean": 0.157,
+          "fold_min": 0.049,
+          "fold_max": 0.291,
+          "n_folds_pos": 8,
+          "n_folds": 8
+        },
+        "3": {
+          "n_movements": 0,
+          "RI_ToD": null,
+          "folds": []
+        },
+        "4": {
+          "n_movements": 0,
+          "RI_ToD": null,
+          "folds": []
+        },
+        "5": {
+          "n_movements": 0,
+          "RI_ToD": null,
+          "folds": []
+        }
+      },
+      "pooled_h>=2_check": {
+        "n": 15,
+        "RI_ToD": 0.167
+      }
+    },
+    "15min": {
+      "binmin": 15,
+      "n_query_total": 100,
+      "hop_histogram": {
+        "1": 85,
+        "2": 15
+      },
+      "by_depth": {
+        "1": {
+          "n_movements": 85,
+          "RI_ToD": 0.575,
+          "folds": [
+            0.577,
+            0.586,
+            0.595,
+            0.541,
+            0.576,
+            0.57,
+            0.564,
+            0.581
+          ],
+          "fold_mean": 0.574,
+          "fold_min": 0.541,
+          "fold_max": 0.595,
+          "n_folds_pos": 8,
+          "n_folds": 8
+        },
+        "2": {
+          "n_movements": 15,
+          "RI_ToD": 0.21,
+          "folds": [
+            0.186,
+            0.207,
+            0.282,
+            0.173,
+            0.2,
+            0.226,
+            0.231,
+            0.16
+          ],
+          "fold_mean": 0.208,
+          "fold_min": 0.16,
+          "fold_max": 0.282,
+          "n_folds_pos": 8,
+          "n_folds": 8
+        },
+        "3": {
+          "n_movements": 0,
+          "RI_ToD": null,
+          "folds": []
+        },
+        "4": {
+          "n_movements": 0,
+          "RI_ToD": null,
+          "folds": []
+        },
+        "5": {
+          "n_movements": 0,
+          "RI_ToD": null,
+          "folds": []
+        }
+      },
+      "pooled_h>=2_check": {
+        "n": 15,
+        "RI_ToD": 0.21
+      }
+    }
+  },
+  "alt_blocks_depth_scan": [
+    {
+      "seed": "34180200000516",
+      "n_ints": 8,
+      "n_movements": 100,
+      "max_h": 2,
+      "hop_histogram": {
+        "1": 85,
+        "2": 15
+      }
+    },
+    {
+      "seed": "34180200000001",
+      "n_ints": 8,
+      "n_movements": 117,
+      "max_h": 2,
+      "hop_histogram": {
+        "1": 93,
+        "2": 24
+      }
+    },
+    {
+      "seed": "34180200000181",
+      "n_ints": 8,
+      "n_movements": 87,
+      "max_h": 2,
+      "hop_histogram": {
+        "1": 84,
+        "2": 3
+      }
+    },
+    {
+      "seed": "34180200000190",
+      "n_ints": 8,
+      "n_movements": 92,
+      "max_h": 2,
+      "hop_histogram": {
+        "1": 86,
+        "2": 6
+      }
+    },
+    {
+      "seed": "34180200000215",
+      "n_ints": 8,
+      "n_movements": 87,
+      "max_h": 2,
+      "hop_histogram": {
+        "1": 84,
+        "2": 3
+      }
+    },
+    {
+      "seed": "34180200000232",
+      "n_ints": 8,
+      "n_movements": 82,
+      "max_h": 2,
+      "hop_histogram": {
+        "1": 76,
+        "2": 6
+      }
+    }
+  ],
+  "deep_blocks_depth_ri": {}
+}

@@ -1,0 +1,137 @@
+{
+  "question": "Does the boundary-diffused demand ratio beat a global no-diffusion growth ratio at h=1 (as synthetically 0.750 vs 0.626) and tie/lose at h>=2, on the REAL sites?",
+  "synthetic_reference": {
+    "pooled": {
+      "diffused": 0.629,
+      "global": 0.629
+    },
+    "h1": {
+      "diffused": 0.75,
+      "global": 0.626
+    },
+    "hge2": "the diffused mode ties or loses (synthetic)"
+  },
+  "bucheon": {
+    "site": "Bucheon (real site 1)",
+    "n_windows": 33,
+    "n_intersections": 16,
+    "protocol": "single LOIO -> h=1 boundary; four 2x2 corner deep corners -> h>=2 interior; same-clock-hour LOWO base; 30-iter diffusion; no ratio clip",
+    "strata": {
+      "h1": {
+        "label": "h=1 boundary",
+        "n_query_movements": 104,
+        "n_scored_errors": 3432,
+        "anchor_RI_ToD": 0.747,
+        "global_ratio_RI_ToD": 0.171,
+        "anchor_minus_global": 0.576,
+        "anchor_minus_global_ci95": [
+          0.385,
+          0.654
+        ],
+        "anchor_minus_global_of_printed_cells": 0.576
+      },
+      "hge2": {
+        "label": "h>=2 interior",
+        "n_query_movements": 8,
+        "n_scored_errors": 264,
+        "anchor_RI_ToD": -0.108,
+        "global_ratio_RI_ToD": 0.001,
+        "anchor_minus_global": -0.109,
+        "anchor_minus_global_ci95": [
+          -0.207,
+          0.026
+        ],
+        "anchor_minus_global_of_printed_cells": -0.109
+      }
+    }
+  },
+  "xuancheng": {
+    "site": "Xuancheng (real site 2, 2023 Release B)",
+    "block_variant": "feas",
+    "n_days": 8,
+    "days": [
+      "2023-04-03",
+      "2023-04-04",
+      "2023-04-06",
+      "2023-04-07",
+      "2023-04-10",
+      "2023-04-11",
+      "2023-04-12",
+      "2023-04-13"
+    ],
+    "n_block_intersections": 8,
+    "protocol": "8-date LODO, day hours 7-20, contiguous 8-int masked block; depth_h strata (h=1 = observable approach link); same-clock-hour base; 30-iter diffusion; ratio clip [0.2,5.0]",
+    "by_resolution": {
+      "60min": {
+        "binmin": 60,
+        "hop_histogram": {
+          "1": 85,
+          "2": 15
+        },
+        "strata": {
+          "h1": {
+            "label": "h=1 boundary",
+            "n_query_movements": 85,
+            "n_scored_errors": 8840,
+            "anchor_RI_ToD": 0.51,
+            "global_ratio_RI_ToD": 0.18,
+            "anchor_minus_global": 0.329,
+            "anchor_minus_global_ci95": [
+              0.283,
+              0.384
+            ],
+            "anchor_minus_global_of_printed_cells": 0.33
+          },
+          "hge2": {
+            "label": "h>=2 interior",
+            "n_query_movements": 15,
+            "n_scored_errors": 1560,
+            "anchor_RI_ToD": 0.167,
+            "global_ratio_RI_ToD": 0.173,
+            "anchor_minus_global": -0.006,
+            "anchor_minus_global_ci95": [
+              -0.02,
+              0.008
+            ],
+            "anchor_minus_global_of_printed_cells": -0.006
+          }
+        }
+      },
+      "15min": {
+        "binmin": 15,
+        "hop_histogram": {
+          "1": 85,
+          "2": 15
+        },
+        "strata": {
+          "h1": {
+            "label": "h=1 boundary",
+            "n_query_movements": 85,
+            "n_scored_errors": 35360,
+            "anchor_RI_ToD": 0.575,
+            "global_ratio_RI_ToD": 0.267,
+            "anchor_minus_global": 0.308,
+            "anchor_minus_global_ci95": [
+              0.291,
+              0.326
+            ],
+            "anchor_minus_global_of_printed_cells": 0.308
+          },
+          "hge2": {
+            "label": "h>=2 interior",
+            "n_query_movements": 15,
+            "n_scored_errors": 6240,
+            "anchor_RI_ToD": 0.21,
+            "global_ratio_RI_ToD": 0.206,
+            "anchor_minus_global": 0.004,
+            "anchor_minus_global_ci95": [
+              -0.006,
+              0.013
+            ],
+            "anchor_minus_global_of_printed_cells": 0.004
+          }
+        }
+      }
+    }
+  }
+}

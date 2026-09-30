@@ -1,0 +1,36 @@
+{
+  "site": "Bucheon",
+  "bin_min": 15,
+  "n_intersections": 16,
+  "demandcv_res_median": 0.226,
+  "demandcv_res_iqr": [
+    0.218,
+    0.235
+  ],
+  "demandcv_res_range": [
+    0.147,
+    0.251
+  ],
+  "across_intersection_spread_sd": 0.023,
+  "neighbour_pred_mae": 0.016,
+  "site_median_pred_mae": 0.014,
+  "neighbour_pred_corr": 0.218,
+  "per_intersection": {
+    "J1": 0.225,
+    "J10": 0.216,
+    "J11": 0.227,
+    "J12": 0.229,
+    "J13": 0.251,
+    "J14": 0.248,
+    "J15": 0.225,
+    "J16": 0.24,
+    "J2": 0.218,
+    "J3": 0.147,
+    "J4": 0.23,
+    "J5": 0.218,
+    "J6": 0.215,
+    "J7": 0.218,
+    "J8": 0.244,
+    "J9": 0.233
+  }
+}

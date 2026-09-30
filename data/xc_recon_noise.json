@@ -1,0 +1,31 @@
+{
+ "test": "per-movement noise breaking approach conservation; interior anchor RI_ToD, 15-min, 3 seeds",
+ "interior": "depth_h >= 2 of the feas block",
+ "rows": [
+  {
+   "sigma": 0.0,
+   "interior_RI_ToD": 0.21,
+   "median_abs_rho": 0.0
+  },
+  {
+   "sigma": 0.1,
+   "interior_RI_ToD": 0.191,
+   "median_abs_rho": 0.065
+  },
+  {
+   "sigma": 0.2,
+   "interior_RI_ToD": 0.151,
+   "median_abs_rho": 0.13
+  },
+  {
+   "sigma": 0.3,
+   "interior_RI_ToD": 0.111,
+   "median_abs_rho": 0.195
+  },
+  {
+   "sigma": 0.5,
+   "interior_RI_ToD": 0.058,
+   "median_abs_rho": 0.323
+  }
+ ]
+}

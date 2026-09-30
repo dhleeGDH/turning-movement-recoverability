@@ -21,7 +21,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 def _routing(scale="5by5"):
-    """Location of the generated SUMO networks; set TMR_ROUTING to override."""
+    """Location of the SUMO networks written by od_gen; set TMR_ROUTING to override."""
     return os.path.join(os.environ.get("TMR_ROUTING", os.path.join(os.getcwd(), "routing")), scale)
 
 

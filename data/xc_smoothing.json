@@ -1,0 +1,31 @@
+{
+ "test": "split noise, approach volumes preserved; anchor RI_ToD, 15-min, 3 seeds",
+ "interior": "depth_h >= 2 of the feas block",
+ "rows": [
+  {
+   "sigma": 0.0,
+   "boundary_RI_ToD": 0.603,
+   "interior_RI_ToD": 0.21
+  },
+  {
+   "sigma": 0.1,
+   "boundary_RI_ToD": 0.568,
+   "interior_RI_ToD": 0.203
+  },
+  {
+   "sigma": 0.2,
+   "boundary_RI_ToD": 0.48,
+   "interior_RI_ToD": 0.185
+  },
+  {
+   "sigma": 0.3,
+   "boundary_RI_ToD": 0.359,
+   "interior_RI_ToD": 0.157
+  },
+  {
+   "sigma": 0.5,
+   "boundary_RI_ToD": 0.159,
+   "interior_RI_ToD": 0.084
+  }
+ ]
+}

@@ -7,7 +7,7 @@ matplotlib>=3.7
 # Synthetic network generation and demand assignment run on SUMO (Simulation of
 # Urban MObility, https://www.eclipse.org/sumo). Install the SUMO binaries
 # separately and expose sumo, netgenerate, and duarouter on PATH; the Python
-# bindings below read the generated networks and routes.
+# bindings below read the produced networks and routes.
 sumolib>=1.19
 
 # The demand anchor, the achievable-accuracy benchmark, and the split-probe

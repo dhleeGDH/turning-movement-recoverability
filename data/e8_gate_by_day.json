@@ -1,0 +1,225 @@
+{
+ "rho_star": 0.063,
+ "per_day_rho": {
+  "2023-04-03": {
+   "n_links": 21,
+   "q25": 0.0382,
+   "median": 0.062,
+   "q75": 0.1827
+  },
+  "2023-04-04": {
+   "n_links": 21,
+   "q25": 0.0252,
+   "median": 0.0596,
+   "q75": 0.1867
+  },
+  "2023-04-06": {
+   "n_links": 21,
+   "q25": 0.0271,
+   "median": 0.052,
+   "q75": 0.1543
+  },
+  "2023-04-07": {
+   "n_links": 21,
+   "q25": 0.027,
+   "median": 0.0643,
+   "q75": 0.1867
+  },
+  "2023-04-10": {
+   "n_links": 21,
+   "q25": 0.0357,
+   "median": 0.0607,
+   "q75": 0.1654
+  },
+  "2023-04-11": {
+   "n_links": 21,
+   "q25": 0.0307,
+   "median": 0.0604,
+   "q75": 0.1658
+  },
+  "2023-04-12": {
+   "n_links": 21,
+   "q25": 0.0316,
+   "median": 0.0656,
+   "q75": 0.1531
+  },
+  "2023-04-13": {
+   "n_links": 21,
+   "q25": 0.0313,
+   "median": 0.0649,
+   "q75": 0.1583
+  }
+ },
+ "resolutions": {
+  "60min": {
+   "n_interior_movements": 15,
+   "per_day": [
+    {
+     "date": "2023-04-03",
+     "median_abs_rho": 0.062,
+     "selected": "diffused",
+     "RI_diffused": 0.112,
+     "RI_global": 0.1434,
+     "RI_selected": 0.112,
+     "diffused_minus_global": -0.031466
+    },
+    {
+     "date": "2023-04-04",
+     "median_abs_rho": 0.0596,
+     "selected": "diffused",
+     "RI_diffused": 0.1165,
+     "RI_global": 0.141,
+     "RI_selected": 0.1165,
+     "diffused_minus_global": -0.024453
+    },
+    {
+     "date": "2023-04-06",
+     "median_abs_rho": 0.052,
+     "selected": "diffused",
+     "RI_diffused": 0.2109,
+     "RI_global": 0.2301,
+     "RI_selected": 0.2109,
+     "diffused_minus_global": -0.019214
+    },
+    {
+     "date": "2023-04-07",
+     "median_abs_rho": 0.0643,
+     "selected": "global",
+     "RI_diffused": 0.0486,
+     "RI_global": 0.074,
+     "RI_selected": 0.074,
+     "diffused_minus_global": -0.025417
+    },
+    {
+     "date": "2023-04-10",
+     "median_abs_rho": 0.0607,
+     "selected": "diffused",
+     "RI_diffused": 0.1075,
+     "RI_global": 0.0817,
+     "RI_selected": 0.1075,
+     "diffused_minus_global": 0.025782
+    },
+    {
+     "date": "2023-04-11",
+     "median_abs_rho": 0.0604,
+     "selected": "diffused",
+     "RI_diffused": 0.2907,
+     "RI_global": 0.2766,
+     "RI_selected": 0.2907,
+     "diffused_minus_global": 0.01401
+    },
+    {
+     "date": "2023-04-12",
+     "median_abs_rho": 0.0656,
+     "selected": "global",
+     "RI_diffused": 0.2763,
+     "RI_global": 0.2648,
+     "RI_selected": 0.2648,
+     "diffused_minus_global": 0.011515
+    },
+    {
+     "date": "2023-04-13",
+     "median_abs_rho": 0.0649,
+     "selected": "global",
+     "RI_diffused": 0.0906,
+     "RI_global": 0.0807,
+     "RI_selected": 0.0807,
+     "diffused_minus_global": 0.009859
+    }
+   ],
+   "n_days_selecting_global": 3,
+   "global_days_diffused_minus_global_range": [
+    -0.025417,
+    0.011515
+   ],
+   "pooled_RI_under_the_rule": 0.167,
+   "pooled_RI_diffused_always": 0.1668,
+   "pooled_RI_global_always": 0.1729
+  },
+  "15min": {
+   "n_interior_movements": 15,
+   "per_day": [
+    {
+     "date": "2023-04-03",
+     "median_abs_rho": 0.062,
+     "selected": "diffused",
+     "RI_diffused": 0.1861,
+     "RI_global": 0.2089,
+     "RI_selected": 0.1861,
+     "diffused_minus_global": -0.022835
+    },
+    {
+     "date": "2023-04-04",
+     "median_abs_rho": 0.0596,
+     "selected": "diffused",
+     "RI_diffused": 0.2072,
+     "RI_global": 0.2118,
+     "RI_selected": 0.2072,
+     "diffused_minus_global": -0.004583
+    },
+    {
+     "date": "2023-04-06",
+     "median_abs_rho": 0.052,
+     "selected": "diffused",
+     "RI_diffused": 0.2818,
+     "RI_global": 0.2623,
+     "RI_selected": 0.2818,
+     "diffused_minus_global": 0.019448
+    },
+    {
+     "date": "2023-04-07",
+     "median_abs_rho": 0.0643,
+     "selected": "global",
+     "RI_diffused": 0.1728,
+     "RI_global": 0.1692,
+     "RI_selected": 0.1692,
+     "diffused_minus_global": 0.003621
+    },
+    {
+     "date": "2023-04-10",
+     "median_abs_rho": 0.0607,
+     "selected": "diffused",
+     "RI_diffused": 0.2004,
+     "RI_global": 0.1863,
+     "RI_selected": 0.2004,
+     "diffused_minus_global": 0.014079
+    },
+    {
+     "date": "2023-04-11",
+     "median_abs_rho": 0.0604,
+     "selected": "diffused",
+     "RI_diffused": 0.2256,
+     "RI_global": 0.2251,
+     "RI_selected": 0.2256,
+     "diffused_minus_global": 0.000559
+    },
+    {
+     "date": "2023-04-12",
+     "median_abs_rho": 0.0656,
+     "selected": "global",
+     "RI_diffused": 0.2308,
+     "RI_global": 0.2136,
+     "RI_selected": 0.2136,
+     "diffused_minus_global": 0.017262
+    },
+    {
+     "date": "2023-04-13",
+     "median_abs_rho": 0.0649,
+     "selected": "global",
+     "RI_diffused": 0.1597,
+     "RI_global": 0.1497,
+     "RI_selected": 0.1497,
+     "diffused_minus_global": 0.01002
+    }
+   ],
+   "n_days_selecting_global": 3,
+   "global_days_diffused_minus_global_range": [
+    0.003621,
+    0.017262
+   ],
+   "pooled_RI_under_the_rule": 0.2064,
+   "pooled_RI_diffused_always": 0.21,
+   "pooled_RI_global_always": 0.2056
+  }
+ }
+}

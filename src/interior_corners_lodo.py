@@ -3,7 +3,10 @@
 The interior stratum of the main text pools the deep-corner movements of the four 2x2
 corner blocks. This module scores each block separately, with the history and the
 same-clock-hour naive drawn from the other dates only, and reports per-fold Relative
-Improvement for the diffused anchor and for the global growth ratio.
+Improvement for the diffused anchor and for the global growth ratio. The top level also carries
+the two aggregates of the interior movements of the four blocks: the fold mean averaged over the
+blocks, and the pooled RI over every block, date and window. The two aggregates can order the
+modes differently.
 
     python3 -m src.interior_corners_lodo  # writes data/e12_interior_corners_lodo.json
 """
@@ -39,6 +42,7 @@ def run(out="data/e12_interior_corners_lodo.json"):
     udates = sorted(set(dates.tolist()))
     APPR, _ = _link_vol(net, Yb)
     res = {"n_windows": int(W), "n_dates": len(udates), "blocks": {}}
+    allA, allG, allN = [], [], []
     for bname, U in _corner_blocks().items():
         um = np.array([m.intersection in U for m in net.movements])
         oa = approach_observed_mask(net, U)
@@ -61,6 +65,7 @@ def run(out="data/e12_interior_corners_lodo.json"):
                 seA.append((ht[q2] * r_diff[q2] - true) ** 2)
                 seG.append((ht[q2] * g - true) ** 2)
                 seN.append((ht[q2] - true) ** 2)
+            allA.extend(seA); allG.extend(seG); allN.extend(seN)
             rn = float(np.sqrt(np.concatenate(seN).mean()))
             folds["anchor"].append(round(1 - float(np.sqrt(np.concatenate(seA).mean())) / rn, 3))
             folds["global"].append(round(1 - float(np.sqrt(np.concatenate(seG).mean())) / rn, 3))
@@ -73,6 +78,13 @@ def run(out="data/e12_interior_corners_lodo.json"):
         }
         print(f"  {bname}: n_h2={len(q2)}  anchor={res['blocks'][bname]['fold_mean_anchor']:+.3f}  "
               f"global={res['blocks'][bname]['fold_mean_global']:+.3f}")
+    bl = [b for b in res["blocks"].values() if b.get("n_h2")]
+    rn = float(np.sqrt(np.concatenate(allN).mean()))
+    res["n_h2_total"] = int(sum(b["n_h2"] for b in bl))
+    res["block_average_fold_mean_anchor"] = round(float(np.mean([b["fold_mean_anchor"] for b in bl])), 3)
+    res["block_average_fold_mean_global"] = round(float(np.mean([b["fold_mean_global"] for b in bl])), 3)
+    res["anchor_pooled"] = round(1 - float(np.sqrt(np.concatenate(allA).mean())) / rn, 3)
+    res["global_pooled"] = round(1 - float(np.sqrt(np.concatenate(allG).mean())) / rn, 3)
     json.dump(res, open(out, "w"), indent=1)
     print("saved", out)
     return res

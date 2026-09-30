@@ -1,0 +1,292 @@
+{
+ "deterministic": true,
+ "synthetic": {
+  "probe": "GFM (DART/GraphPFN) split, synthetic 9x9, leave-one-4x4-block-out x seed",
+  "n_units": 12,
+  "units": [
+   {
+    "seed": 0,
+    "block": "4x4@(0,0)",
+    "gain": 0.0174,
+    "RI_gfm_split": -0.133,
+    "RI_hist_split": -0.1504,
+    "DART_count_overall_RI": 0.6402
+   },
+   {
+    "seed": 0,
+    "block": "4x4@(2,2)",
+    "gain": 0.0042,
+    "RI_gfm_split": -0.2384,
+    "RI_hist_split": -0.2426,
+    "DART_count_overall_RI": 0.6696
+   },
+   {
+    "seed": 0,
+    "block": "4x4@(5,5)",
+    "gain": 0.0144,
+    "RI_gfm_split": -0.8875,
+    "RI_hist_split": -0.9019,
+    "DART_count_overall_RI": 0.6871
+   },
+   {
+    "seed": 1,
+    "block": "4x4@(0,0)",
+    "gain": 0.042,
+    "RI_gfm_split": -0.2066,
+    "RI_hist_split": -0.2486,
+    "DART_count_overall_RI": 0.664
+   },
+   {
+    "seed": 1,
+    "block": "4x4@(2,2)",
+    "gain": 0.0232,
+    "RI_gfm_split": -0.3255,
+    "RI_hist_split": -0.3487,
+    "DART_count_overall_RI": 0.6223
+   },
+   {
+    "seed": 1,
+    "block": "4x4@(5,5)",
+    "gain": 0.0116,
+    "RI_gfm_split": -1.0725,
+    "RI_hist_split": -1.0841,
+    "DART_count_overall_RI": 0.5241
+   },
+   {
+    "seed": 2,
+    "block": "4x4@(0,0)",
+    "gain": 0.0383,
+    "RI_gfm_split": -0.1414,
+    "RI_hist_split": -0.1797,
+    "DART_count_overall_RI": 0.6612
+   },
+   {
+    "seed": 2,
+    "block": "4x4@(2,2)",
+    "gain": 0.0265,
+    "RI_gfm_split": -0.2336,
+    "RI_hist_split": -0.2601,
+    "DART_count_overall_RI": 0.6738
+   },
+   {
+    "seed": 2,
+    "block": "4x4@(5,5)",
+    "gain": 0.019,
+    "RI_gfm_split": -0.9539,
+    "RI_hist_split": -0.9729,
+    "DART_count_overall_RI": 0.7111
+   },
+   {
+    "seed": 3,
+    "block": "4x4@(0,0)",
+    "gain": 0.0335,
+    "RI_gfm_split": -0.1526,
+    "RI_hist_split": -0.1861,
+    "DART_count_overall_RI": 0.6726
+   },
+   {
+    "seed": 3,
+    "block": "4x4@(2,2)",
+    "gain": 0.0197,
+    "RI_gfm_split": -0.2294,
+    "RI_hist_split": -0.2491,
+    "DART_count_overall_RI": 0.6928
+   },
+   {
+    "seed": 3,
+    "block": "4x4@(5,5)",
+    "gain": 0.0168,
+    "RI_gfm_split": -0.9488,
+    "RI_hist_split": -0.9656,
+    "DART_count_overall_RI": 0.7297
+   }
+  ],
+  "ci": {
+   "point_gain": 0.0222,
+   "n_units": 12,
+   "sd_over_units": 0.0111,
+   "se": 0.0032,
+   "ci95_bootstrap": [
+    0.0164,
+    0.0283
+   ],
+   "ci95_t": [
+    0.0151,
+    0.0293
+   ],
+   "pos_frac": 1.0,
+   "per_unit_gain": [
+    0.0174,
+    0.0042,
+    0.0144,
+    0.042,
+    0.0232,
+    0.0116,
+    0.0383,
+    0.0265,
+    0.019,
+    0.0335,
+    0.0197,
+    0.0168
+   ]
+  },
+  "seconds": 1120.0
+ },
+ "bucheon": {
+  "probe": "GFM (DART/GraphPFN, SUMO-trained, zero-shot) split, Bucheon 15-min LOIO",
+  "units": [
+   {
+    "intersection": "J1",
+    "gain_observed": 0.0582,
+    "gain_diffused": 0.0582
+   },
+   {
+    "intersection": "J10",
+    "gain_observed": 0.0112,
+    "gain_diffused": 0.0112
+   },
+   {
+    "intersection": "J11",
+    "gain_observed": -0.0202,
+    "gain_diffused": -0.0202
+   },
+   {
+    "intersection": "J12",
+    "gain_observed": -0.0111,
+    "gain_diffused": -0.0111
+   },
+   {
+    "intersection": "J13",
+    "gain_observed": 0.0522,
+    "gain_diffused": 0.0522
+   },
+   {
+    "intersection": "J14",
+    "gain_observed": -0.0123,
+    "gain_diffused": -0.0123
+   },
+   {
+    "intersection": "J15",
+    "gain_observed": 0.0015,
+    "gain_diffused": 0.0015
+   },
+   {
+    "intersection": "J16",
+    "gain_observed": 0.0621,
+    "gain_diffused": 0.0621
+   },
+   {
+    "intersection": "J2",
+    "gain_observed": -0.1566,
+    "gain_diffused": -0.1566
+   },
+   {
+    "intersection": "J3",
+    "gain_observed": -0.0178,
+    "gain_diffused": -0.0178
+   },
+   {
+    "intersection": "J4",
+    "gain_observed": 0.0697,
+    "gain_diffused": 0.0697
+   },
+   {
+    "intersection": "J5",
+    "gain_observed": 0.0143,
+    "gain_diffused": 0.0143
+   },
+   {
+    "intersection": "J6",
+    "gain_observed": 0.0292,
+    "gain_diffused": 0.0292
+   },
+   {
+    "intersection": "J7",
+    "gain_observed": -0.0271,
+    "gain_diffused": -0.0271
+   },
+   {
+    "intersection": "J8",
+    "gain_observed": -0.0273,
+    "gain_diffused": -0.0273
+   },
+   {
+    "intersection": "J9",
+    "gain_observed": 0.0054,
+    "gain_diffused": 0.0054
+   }
+  ],
+  "observed": {
+   "point_gain": 0.002,
+   "n_units": 16,
+   "sd_over_units": 0.0535,
+   "se": 0.0134,
+   "ci95_bootstrap": [
+    -0.0258,
+    0.0251
+   ],
+   "ci95_t": [
+    -0.0265,
+    0.0305
+   ],
+   "pos_frac": 0.562,
+   "per_unit_gain": [
+    0.0582,
+    0.0112,
+    -0.0202,
+    -0.0111,
+    0.0522,
+    -0.0123,
+    0.0015,
+    0.0621,
+    -0.1566,
+    -0.0178,
+    0.0697,
+    0.0143,
+    0.0292,
+    -0.0271,
+    -0.0273,
+    0.0054
+   ]
+  },
+  "diffused": {
+   "point_gain": 0.002,
+   "n_units": 16,
+   "sd_over_units": 0.0535,
+   "se": 0.0134,
+   "ci95_bootstrap": [
+    -0.0254,
+    0.025
+   ],
+   "ci95_t": [
+    -0.0265,
+    0.0305
+   ],
+   "pos_frac": 0.562,
+   "per_unit_gain": [
+    0.0582,
+    0.0112,
+    -0.0202,
+    -0.0111,
+    0.0522,
+    -0.0123,
+    0.0015,
+    0.0621,
+    -0.1566,
+    -0.0178,
+    0.0697,
+    0.0143,
+    0.0292,
+    -0.0271,
+    -0.0273,
+    0.0054
+   ]
+  },
+  "train_seconds": 305.5,
+  "seconds": 843.9
+ },
+ "detection_floor_RI": {
+  "synthetic": 0.028,
+  "site1": 0.018
+ }
+}

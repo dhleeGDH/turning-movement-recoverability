@@ -61,7 +61,7 @@ def marouter(scale, fma_path, out_rou):
 
 
 def run_sumo_rou(scale, rou_path, tag, begin=21600, end=28800):
-    """Run SUMO on a generated route file (net-default signal timing). Return vehroute path."""
+    """Run SUMO on a produced route file (net-default signal timing). Return vehroute path."""
     net = f"{ROUTING}/{scale}/{scale}.net.xml"
     taz = f"{ROUTING}/{scale}/tazfile.taz.xml"
     os.makedirs(f"{WORK}/od", exist_ok=True)

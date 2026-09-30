@@ -86,5 +86,10 @@
    "fold_mean_anchor": 0.061,
    "fold_mean_global": 0.109
   }
- }
+ },
+ "n_h2_total": 64,
+ "block_average_fold_mean_anchor": 0.072,
+ "block_average_fold_mean_global": 0.127,
+ "anchor_pooled": 0.264,
+ "global_pooled": 0.095
 }

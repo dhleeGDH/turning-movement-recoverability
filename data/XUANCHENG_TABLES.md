@@ -15,3 +15,9 @@ licence, with attribution to that release.
     window   the within-day slot index
     binmin   the window length in minutes
     inter_of the intersection of each movement
+
+`xc_feas_network.json` holds the network structure of the same district, derived from the road
+network of that release: the junction types, the links (end junctions, lanes, length, speed), the
+turning movements of the 34 signalized intersections, the corridor edges that join two signals
+across unsignalized road segments, and the eight intersections of the masked block.
+`src/xc_network.py` builds the movement graph from it.

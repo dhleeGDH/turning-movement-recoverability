@@ -1,6 +1,6 @@
 """Detection floor for the turn split measured on the site-1 protocol itself.
 
-The synthetic positive control locates the detection floor on generated data, and that floor
+The synthetic positive control locates the detection floor on simulated data, and that floor
 is then transferred onto the site-1 split-residual scale. This module measures the analogous
 floor directly on the site-1 leave-one-intersection-out test, so that the observed null at the
 real site is reported against a floor established under the same protocol.

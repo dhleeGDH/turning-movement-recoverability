@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 *.egg-info/
 .DS_Store
+results/
+checkpoints/
+data/*_scenarios.npz
